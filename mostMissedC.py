@@ -68,7 +68,6 @@ class MostMissedCls:
 
     def results(self, lst):
         # Takes the list and finds the most missed question and the question number
-        # TODO Show all results that are equal to the max value, For loop?
         self.numMostMissed = max(lst)
         self.mostMissed = [index for index, value in enumerate(self.questions) if value == self.numMostMissed]
         self.mostMissed = [str(x + 1) for x in self.mostMissed]
