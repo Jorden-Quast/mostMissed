@@ -2,7 +2,7 @@ class MostMissedCls:
     def __init__(self):
         self.numQuestions = ""
         self.questions = []
-        self.missedQuestion = 0
+        self.missedQuestion = ""
         self.mostMissed = 0
         self.numMostMissed = 0
         self.errLst = []
@@ -28,6 +28,7 @@ class MostMissedCls:
             # Getting Question Number
             self.missedQuestion = str.lower(input("Type the number of the question(s) missed, separated by a space "
                                                   "for multiple questions, or type 'results' to see the results: "))
+            self.missedQuestion = str.strip(self.missedQuestion)
             self.missedQuestion = self.missedQuestion.split(" ")
 
             # Testing if user wants results
@@ -69,5 +70,8 @@ class MostMissedCls:
         # Takes the list and finds the most missed question and the question number
         # TODO Show all results that are equal to the max value, For loop?
         self.numMostMissed = max(lst)
-        self.mostMissed = lst.index(self.numMostMissed) + 1
-        print(f"The most missed question(s) was: {self.mostMissed}, being missed {self.numMostMissed} times.")
+        self.mostMissed = [index for index, value in enumerate(self.questions) if value == self.numMostMissed]
+        self.mostMissed = [str(x + 1) for x in self.mostMissed]
+
+        print(f"The most missed question(s) was: {', '.join(self.mostMissed)}\n"
+              f"These question(s) were missed {self.numMostMissed} times.")
