@@ -126,4 +126,4 @@ dmypy.json
 .pyre/
 
 .gitignore
-.idea/vcs.xml
+.idea
